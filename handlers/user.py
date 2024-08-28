@@ -11,3 +11,8 @@ async def process_start_command(message: Message):
     if message.from_user.id not in users:
         users[message.from_user.id] = {}
     await message.answer(LEXICON[message.text])
+
+
+@router.message(Command(commands='help'))
+async def process_help_command(message: Message):
+    await message.answer(LEXICON[message.text])
